@@ -1,9 +1,9 @@
 resource "aws_instance" "jenkins" {
   ami           = "ami-0f58b397bc5c1f2e8" # Amazon Linux 2 (ap-south-1)
   instance_type = "t2.micro"
-  key_name      = "your-key"
+  key_name      = "devops1"
 
-  security_groups = ["jenkins-sg"]
+  vpc_security_group_ids = [aws_security_group.jenkins-sg.id]
 
   tags = {
     Name = "Jenkins-Server"
